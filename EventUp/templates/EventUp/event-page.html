@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="descreption" content="event page">
+        <meta name="author" conent="Younes">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="{%static 'EventUp/event-page.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <title>Event page</title>
+    </head>
+    <body>
+        <a href="{% url 'main' %}"><img src="{% static 'EventUp/logo.png' %}" id="logo" alt="logo"></a>
+
+        <div class="container">
+            <div class="event-image">
+              <img src="{% static event.image.url %}" alt="An image">
+            </div>
+        </div>
+        <header>{{event.name}}</header>
+        <h4><span> ORGANISE PAR <a href="{% url 'club' event.organizer.username %}">{{event.organizer}}</a> </span>  <img src="{% static event.organizer.profile.profile_pic.url %}" alt=""></h4>
+        <div class="event-info1">
+            <p>date: {{event.start_date}} 
+            <br> lieu: {{event.place}}
+            <br> duree: {%if duree.days > 1%} {{duree.days}} days {% else %} 1 day {% endif %} 
+            <br> {%if event.public %} Public {% else %} Members Only {% endif %}
+            <br> <a href="{{event.link}}">more</a> </p>
+        </div>
+        <div class="event-info2">
+            <p>{{event.description}}</p>
+        </div>
+        <div>
+            
+        </div>
+        <div class="team-building">
+            <p>You want to participate and you don't have a team or yours is  not full don't worry click here :</p>
+            <form action="{% url 'team' event.name %}" method="get">
+                <input type="submit" class="submit" value="Team Building">
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+body{
+    background-image: url(fond.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "Roboto" , sans-serif;
+    color: white;
+    
+}
+a{
+    color : black
+}
+img{
+    max-width: 100px;
+}

@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'EventUp/club-page.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav_bar"></div>
+    <div class="main_div">
+        <div class="club_id">
+            <div class="img_container"><img src="{%static club.profile.profile_pic.url %}" alt=""></div>
+            <div class="club_n_s">
+                <h3>{{club.username}}</h3>
+                {%if not user == club%}
+                    {%if user.is_authenticated%}
+                        <form action="{% url 'subscribe' club.id %}" method="post">
+                            {% csrf_token %}
+                            {%if is_subscribed%}
+                                <input class="btn" type="submit" value="Unsubscribe">
+                            {% else %}
+                                <input class="btn" type="submit" value="Subscribe">
+                            {% endif %}
+                        </form>
+                    {% else %}
+                        <form action="{% url 'login' %}" method="get">
+                            <input class="btn" type="submit" value="Subscribe">
+                        </form>
+                    {% endif %}
+                {% else %}
+                <form action="{% url 'profile' %}">
+                    <input class="btn" type="submit" value="Profile" />
+                </form>
+                {% endif %}
+            </div>
+        </div>
+        <div clas="club_des">
+            <div class="des">
+                {{club.profile.description}}
+            </div>
+        </div>
+        <div class="club_events swiper mySwiper">
+            <div class="swiper-wrapper">
+                {% for event in club.events.all%}
+                    <div class="swiper-slide">
+                        <a href="{% url 'event' event.id %}"><img class="imgg" src="{%static event.image.url %}" alt=""></a>
+                        <a href="{% url 'event' event.id %}"><h4 class="nm">{{event.name}}</h4></a>
+                    </div>
+                {%empty%}
+                    <div class="swiper-slide"> No events </div>
+                {% endfor %}
+                
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          slidesPerView: 4,
+          spaceBetween: 30,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }
+        });
+      </script>
+</body>
+</html>

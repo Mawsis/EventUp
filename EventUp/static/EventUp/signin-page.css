@@ -1,0 +1,85 @@
+*{
+    font-family: "Roboto" , sans-serif;
+}
+body{
+    background-image: url(fond.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+}
+header{
+    color: aliceblue;
+    font-size:x-large;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px 10px 0px;
+}
+.input-field{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.input-box{
+    height: 45px;
+    width: 300px;
+    border:none;
+    outline: none;
+    border-radius: 30px;
+    color: rgb(219, 208, 208);
+    padding: 0px 0 0 45px;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: medium;
+}
+.submit{
+    border:none;
+    border-radius: 30px;
+    font-size: 17px;
+    height:40px;
+    width: 140px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.7);
+    transition: .3s;
+}
+.submit:hover{
+    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+    background-color: black ;
+    color:rgba(255, 255, 255, 0.7);
+}
+input[type="submit"]{
+    cursor: pointer;
+}
+a{
+    color: rgb(179, 170, 170);
+}
+a:hover{
+    color:#292727;
+}
+p{
+    color: aliceblue;
+}
+.c2{
+    position: relative;
+    bottom: -95px;
+}
+input[type="file"]{
+    display: none;
+}
+.image-field{
+    height: 35px;
+    width: 150px;
+    border:none;
+    outline: none;
+    border-radius: 30px;
+    color: #757575;
+    background: rgba(255, 255, 255, 0.1);
+}

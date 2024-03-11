@@ -1,0 +1,124 @@
+*{
+    font-family: "Poppins",sans-serif;
+}
+body{
+    background-image: url(fond.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+.container {
+    display: flex ;
+    flex-direction: column ;
+    justify-content: center ;
+    align-items: center;
+    min-height: 90vh;
+    padding-top: 2%;
+}
+header{
+    color: aliceblue;
+    font-size:x-large;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    position: relative;
+    padding: 10px 0px 10px 0px;
+}
+.input-field{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.input-box{
+    height: 40px;
+    width: 450px;
+    border:none;
+    outline: none;
+    border-radius: 30px;
+    color: rgb(219, 208, 208);
+    padding: 0 0 0 45px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: medium;
+}
+.image-field{
+    height: 35px;
+    width: 250px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    color: #757575;
+    background-color: rgba(255, 255, 255, 0.1) ;
+}
+#about-event{
+    max-width: 450px;
+    height: 120px;
+    padding-top: 10px;
+    resize: none;
+}
+.submit{
+    border:none;
+    border-radius: 30px;
+    font-size: 20px;
+    height:40px;
+    width: 140px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.7);
+    transition: .3s;
+}
+.submit:hover{
+    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+    background-color: black ;
+    color:rgba(255, 255, 255, 0.7);
+}
+.something{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(219, 208, 208);;
+}
+.date{
+    height: 40px;
+    width: 190px;
+    border:none;
+    outline: none;
+    border-radius: 30px;
+    color: rgb(219, 208, 208);
+    padding: 0px 0 0 45px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: medium;
+}
+
+img{
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    width: 100px;
+    height: 50px;
+}
+.dateshit{
+    display: flex;
+
+}
+input[type="submit"]{
+    cursor: pointer;
+}
+input[type="file"]{
+    display: none;
+}
+label{
+    cursor: pointer;
+}
+a{
+    color: rgb(179, 170, 170);
+}
+p{
+    color: aliceblue;
+}
+#select{
+    width: 490px;
+}

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="descreption" content="event page">
+        <meta name="author" conent="Younes">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="{%static 'EventUp/profile-page.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.css" />
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <title>Profile page</title>
+    </head>
+    <body>
+        <a href="{% url 'main' %}"><img src="{% static 'EventUp/logo.png' %}" id="logo" alt="logo"></a>
+        <div class="container">
+            <div class="profile">
+                <img src="{{user.profile.profile_pic.url}}" alt="">
+                <div class="profile-info">
+                    <h3>{{user.username}}</h3>
+                    <p>Contact : <a href="#">{{user.profile.contact}}</a></p>
+                </div>
+                <form action="{% url 'update' %}" method="get">
+                    <input type="submit" value="Modify">
+                </form>
+            </div>
+            <div class="content">
+                {{user.profile.description}}
+            </div>
+        </div>
+    </body>
+</html>

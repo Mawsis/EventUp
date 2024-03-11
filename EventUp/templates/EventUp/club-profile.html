@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'EventUp/club-profile.css' %}">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <title>Club page</title>
+</head>
+<body>
+    <a href="{% url 'main' %}"><img src="{% static 'EventUp/logo.png' %}" id="logo" alt="logo"></a>
+    <div class="head">
+        <p class="club-name">{{club.username}}</p>
+        <div>
+            <img src="{{club.profile.profile_pic.url}}" alt="logo club" id="club-img">
+        </div>
+        <div>
+            {%if not user == club%}
+                    {%if user.is_authenticated%}
+                        <form action="{% url 'subscribe' club.id %}" method="post">
+                            {% csrf_token %}
+                            {%if is_subscribed%}
+                                <input class="submit" type="submit" value="Unsubscribe">
+                            {% else %}
+                                <input class="submit" type="submit" value="Subscribe">
+                            {% endif %}
+                        </form>
+                    {% else %}
+                        <form action="{% url 'login' %}" method="get">
+                            <input class="submit" type="submit" value="Subscribe">
+                        </form>
+                    {% endif %}
+                {% else %}
+                <form action="{% url 'profile' %}">
+                    <input class="submit" type="submit" value="Profile" />
+                </form>
+                {% endif %}
+        </div>
+        <div>
+            <a href="https://www.instagram.com/" class="socials" id="ig"><i class='fa fa-instagram fa-2x' style='color: white'></i></a>
+            <a href="https://www.linkedin.com/" class="socials" id="in"><i class='fa fa-linkedin-square fa-2x' style='color: white'></i></a>
+        </div>
+        <div class="event-info"><p>{{club.profile.description}}</p></div>
+        </div>
+        <div class="question">
+            <p>If you have any question , drop it here !</p>
+            <div class="qfali">
+                <textarea name="question" cols="30" rows="2" placeholder="My question is..."></textarea>
+                <input type="submit" class="submit" id="send" value="Send">
+            </div>
+        </div>
+        <div class="events">
+            <div class="content">
+                {%for event in club.events.all%}
+                    <div class="grid-div"><a href="{% url 'event' event.id %}"><img src="{{event.image.url}}" alt=""></a></div>
+                {%empty%}
+                    <div class="grid-div">No events</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

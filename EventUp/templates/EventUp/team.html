@@ -1,0 +1,21 @@
+{% extends 'EventUp/layout.html' %}
+{%block body%}
+    {% if user.is_authenticated%}
+        <form action="{% url 'team' event.name %}" method="post">
+            {% csrf_token %}
+            <textarea name="content" id="" cols="30" rows="10">
+            </textarea>
+            <br>
+            <input type="text" name="url" id="">
+            <input type="submit" value="submit">
+        </form>
+    {% else %}
+        Login to create a post
+    {% endif %}
+    {%for post in event.posts.all%}
+        {{post}}
+    {%empty%}
+        No posts
+    {% endfor %} 
+
+{%endblock%}

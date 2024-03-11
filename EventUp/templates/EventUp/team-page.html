@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="descreption" content="event page">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="{%static 'EventUp/team-page.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <title>Event page</title>
+    </head>
+    <body>
+        <div class="nav"></div>
+        <div class="create-post">
+            {%if user.is_authenticated and accepted %}
+                <header>Create a post </header>
+                <form class="create-form" action="{% url 'team' event.name %}" method="post">
+                    {% csrf_token %}
+                    <textarea class="content" name="content" cols="40" rows="8" placeholder="I am a front-end developer"></textarea>
+                    <div class="c-s">
+                        <div>Contacts : <input type="text" name="url"  id=""></div>
+                        <input class="sub" type="submit" value="Submit">
+                    </div>
+                </form>
+            {% else %}
+                <h3>Login to make a post</h3>
+            {% endif %}
+            <div class="grid-post">
+                {%for post in event.posts.all%}
+                    <div class="grid-element">
+                        <div class="profile">
+                            <div class="profile-img"> <img src="{%static post.user.profile.profile_pic.url %}" alt=""> </div>
+                            <div class="profile-info">
+                                <h4>{{post.user.username}}</h4>
+                                <p>Contacts : {{post.url}}</p>
+                            </div>
+                        </div>
+                        <div class="profile-content"><p>{{post.content}}</p></div>
+                    </div>
+                {%empty%}
+                <div class="grid-element">
+                    <div class="profile">
+                        <div class="profile-img"> <img src="" alt=""> </div>
+                        <div class="profile-info">
+                            <h4>No Posts</h4>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="profile-content"><p></p></div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="{%static 'EventUp/create-page.css' %}">
+
+    <title>Sign in</title>
+</head>
+<body>
+    <img src="{% static 'EventUp/logo.png' %}" alt="logo-event">
+    <div class="container">
+        <div>
+            <header>Add you announcement</header>
+        </div>
+        <form action=" {% url 'create_event' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="input-field">
+                <input type="text" class="input-box" name="name" placeholder="Event name" required>
+            </div>
+            <div class="input-field">
+                <select name="category" class="input-box" id="select"> 
+                    {%for category in categories%}
+                        <option value="{{category}}">{{category}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="input-field">
+                <input type="text" class="input-box" name="place" placeholder="Place" required>
+            </div>
+            <div class="dateshit">
+                <div class="input-field">
+                    <input type="date" class="date" name="start_date" placeholder="Start date" required>
+                </div>
+                <div class="input-field">
+                    <input type="date" class="date" name="finish_date" placeholder="Finish date" required>
+                </div>
+            </div>
+            <div class="input-field">
+                <input type="text" class="input-box" name="link" placeholder="Inscription link" required>
+            </div>
+            <div class="input-field">
+                <textarea name="description" class="input-box" id="about-event" cols="30" rows="10" placeholder="About the event..."></textarea>
+            </div>
+            <div class="something">
+                <label style="padding: 2% 10% 2% 0%;">
+                    <input type="radio" name="public" value="True"> Public
+                </label>
+                <label>
+                    <input type="radio" name="public" value="False"> Members only
+                </label>                  
+            </div>
+            <div class="input-field ">
+                <label class="input-field image-field" for="image">Event logo
+                    <span class="material-icons">
+                    add_photo_alternate
+                    </span></label>
+                    <input type="file" name="image" id="image" accept="image/*">
+            </div>
+            <div class="input-field">
+                <input type="submit" class="submit" value="Add" >
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+*{
+    font-family: "Poppins" , sans-serif;
+}
+body{
+    background-image: url(fond.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+.container {
+    width: 500px;
+    overflow: hidden;
+}
+.event-image {
+    width: 220px;
+    height: 200px;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    border-radius: 20px;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+
+}
+.event-image img {
+    border-radius: inherit;
+    max-width: 100%;
+    height: auto;
+}
+header{
+    position: absolute;
+    top: 20%;
+    font-style: normal;
+    font-weight: 250;
+    font-size: 30px;
+    left: 28%;
+    color: aliceblue;
+}
+h4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: absolute;
+    top: 23%;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    left: 28%;
+    color: aliceblue;
+}
+h4 img{
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    border-color: black;
+    border-width: 2px;
+    object-fit: cover;
+}
+
+.event-info1{
+    position: absolute;
+    bottom: 35%;
+    left: 10%;
+    background: rgba(255,255,255,0.06);
+    color: aliceblue;
+    padding-left: 20px;
+    border-radius: 20px;
+    width: 220px;
+    height: 200px;
+    line-height: 35px;
+}
+.event-info2{
+    position: absolute;
+    bottom:7%;
+    left: 28%;
+    background: rgba(255,255,255,0.06);
+    color: aliceblue;
+    padding-left: 20px;
+    border-radius: 20px;
+    width: 850px;
+    height: 440px;
+}
+a{
+    color:aliceblue;
+}
+.team-building p{
+    color: aliceblue;
+    width: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.team-building{
+    position: absolute;
+    bottom: 7%;
+    left: 10%;
+    background: rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 10px;
+    width: 220px;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.submit{
+    border:none;
+    border-radius: 10px;
+    font-size: 13px;
+    height: 30px;
+    width: 110px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.7);
+    transition: .3s;
+}
+.submit:hover{
+    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+    background-color: black ;
+    color:rgba(255, 255, 255, 0.7);
+}
+input[type="submit"]{
+    cursor: pointer;
+}
+#logo{
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    width: 132px;
+    height: 60px;
+}

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="descreption" content="event page">
+        <meta name="author" conent="Younes">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="{%static 'EventUp/modify-page.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <title>Profile page</title>
+    </head>
+    <body>
+        <a href="{% url 'main' %}"><img src="{% static 'EventUp/logo.png' %}" id="logo" alt="logo"></a>
+        <form class="container" action="{% url 'update' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="profile">
+                <div class="input-field ">
+                    <label class="input-field image-field" for="image">Event logo
+                        <span class="material-icons">
+                        add_photo_alternate
+                        </span></label>
+                        <input type="file" style="display: none;" name="image" id="image" accept="image/*">
+                </div>
+                <div class="profile-info">
+                    <div class="input-box">
+                        <h3>Username : <input type="text" class="input-text" name="username" id="" value="{{user.username}}"></h3>
+                    </div>
+                    <div class="input-box">
+                        <p>Contact :    <input type="text" class="input-text" name="link" id="" value="{{user.profile.contact}}"></p>
+                    </div>
+                </div>
+            </div>
+            <textarea name="description" class="content" id="" cols="30" rows="10">{{user.profile.description}}</textarea>
+            <input type="submit" value="Modify" class="submit">
+        </form>
+    </body>
+</html>

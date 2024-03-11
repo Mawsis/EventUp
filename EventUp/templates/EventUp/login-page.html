@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="descreption" content="login page">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="{%static 'EventUp/login-page.css' %}">
+        <title>Login</title>
+    </head>
+    <body>
+        <div class="box">
+            <div>
+                <header>Welcome,</header>
+            </div>
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div class="input-field">
+                    <input autofocus type="text" class="input-box" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-field">
+                    <input type="password" class="input-box" name="password" placeholder="Password" required>
+                </div>
+                <div class="input-field">
+                    <a href="#" class="fpswd">Forgot password</a>
+                </div>
+                {%if message %}
+                    <div class="input-field">
+                        <p>{{message}}</p>
+                    </div>
+                {% endif %}
+                <div class="input-field">
+                    <input type="submit" class="submit" value="Login" >
+                </div>
+            </form>
+            <p>OR</p>
+            <div>
+                <span>
+                    <a href="#"><img  src="{%static 'EventUp/Fb.png'%}" alt="facebook"></a>
+                    <a href="#"><img  src="{%static 'EventUp/google.png'%}" alt="google"></a>
+                </span>
+            </div>
+            <p>If you don't have an account yet <a href="{% url 'register' %}">Registre now</a></p>
+        </div>
+    </body>
+</html> 
